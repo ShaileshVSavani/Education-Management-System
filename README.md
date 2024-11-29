@@ -1,70 +1,93 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# User Management System with Role-Based Authentication
 
-## Available Scripts
+This project is a simple **User Management System** that allows users to sign up, log in, and be redirected to different routes based on their roles (Admin, Teacher, or Student). The system uses **React** for the frontend and **localStorage** to store user data.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Sign Up**: New users can create an account by providing an email, password, and selecting a role (Admin, Teacher, or Student).
+- **Login**: Users can log in with their credentials (email and password).
+- **Role-based Redirection**: After a successful login, users are redirected based on their role:
+  - Admin: `/admin`
+  - Teacher: `/teacher`
+  - Student: `/student`
+- **Toastify Notifications**: Success and error messages are displayed using `react-toastify`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React**: JavaScript library for building user interfaces.
+- **React Router**: For routing and navigation.
+- **react-toastify**: For displaying notification messages.
+- **localStorage**: For storing user data (email, password, and role).
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repository to your local machine:
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/ShaileshVSavani/Education-Management-System.git
+   cd user-management-system
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install the required dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Run the development server:
 
-### `npm run eject`
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   This will start the app on [http://localhost:3000](http://localhost:3000).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+You can view the deployed version of the app at the following URL:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[**Deployed App URL**](https://your-deployment-url.com)  
+(Replace `your-deployment-url.com` with your actual deployed URL.)
 
-## Learn More
+`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `App.js`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The main component that sets up routing and includes `ToastContainer` for displaying notifications.
 
-### Code Splitting
+### `Login.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Handles the login process. After successful login, redirects users based on their roles.
 
-### Analyzing the Bundle Size
+### `Signup.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Handles the signup process. Users can create a new account, and after successful signup, they are redirected to the login page.
 
-### Making a Progressive Web App
+### `AuthContext.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+A context to manage the authentication state of the user (logged-in user).
 
-### Advanced Configuration
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Sign Up
 
-### Deployment
+1. Navigate to the **Sign Up** page (`/signup`).
+2. Enter a valid email, password, and select a role (Admin, Teacher, or Student).
+3. Click on **Sign Up** to create an account. If the account is created successfully, you will be redirected to the login page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Log In
 
-### `npm run build` fails to minify
+1. After signing up, navigate to the **Login** page (`/login`).
+2. Enter your email and password.
+3. If the credentials are correct, you will be redirected to the corresponding page based on your role:
+   - Admin: `/admin`
+   - Teacher: `/teacher`
+   - Student: `/student`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Notifications
+
+The app uses `react-toastify` to display notifications:
+
+- **Success messages**: Displayed on successful actions (e.g., account creation, successful login).
+- **Error messages**: Displayed on failure actions (e.g., invalid credentials, duplicate email during signup).
