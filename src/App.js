@@ -7,7 +7,7 @@ import TeacherDashboard from "./components/Teacher/TeacherDashboard";
 import Login from "./pages/Login";
 import Navbar from './components/Navbar';
 import Signup from "./pages/Signup";
-import Home from "./pages/Home"; // Import Home component
+import Home from "./pages/Home"; 
 import ProtectedRoute from "./routes/ProtectedRoute";
 import AdminProfile from "./components/Admin/AdminProfile";
 import TeacherProfile from "./components/Teacher/TeacherProfile";
@@ -20,7 +20,7 @@ import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-    <AuthProvider> {/* Wrap the application in AuthProvider */}
+    <AuthProvider> 
        <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} />
       <Router>
         <Navbar />

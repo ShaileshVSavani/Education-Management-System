@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
-// import AuthContext from "../context/AuthContext"; // Import AuthContext
 
 const AdminProfile = () => {
-  const { user } = useContext(AuthContext); // Get the logged-in user from context
+  const { user } = useContext(AuthContext); 
 
   if (!user || user.role !== "admin") {
-    return <div>Access Denied</div>; // If the user is not logged in or not an admin
+    return <div>Access Denied</div>; 
   }
 
   return (

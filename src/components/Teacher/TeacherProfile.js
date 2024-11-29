@@ -4,10 +4,10 @@ import AuthContext from "../../context/AuthContext";
 
 
 const TeacherProfile = () => {
-  const { user } = useContext(AuthContext); // Get the logged-in user from context
+  const { user } = useContext(AuthContext); 
 
   if (!user || user.role !== "teacher") {
-    return <div>Access Denied</div>; // If the user is not logged in or not a teacher
+    return <div>Access Denied</div>; 
   }
 
   return (

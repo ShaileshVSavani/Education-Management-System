@@ -1,12 +1,12 @@
 
 import React, { useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import AuthContext from "../context/AuthContext"; // Import AuthContext
+import AuthContext from "../context/AuthContext"; 
 
 const Home = () => {
-  const { user } = useContext(AuthContext); // Access user from AuthContext
+  const { user } = useContext(AuthContext); 
 
-  // Redirect to appropriate dashboard if user is logged in
+  
   useEffect(() => {
     if (user) {
       if (user.role === "admin") {

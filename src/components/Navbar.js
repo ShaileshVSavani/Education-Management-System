@@ -1,18 +1,18 @@
 
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import AuthContext from "../context/AuthContext"; // Import AuthContext
+import AuthContext from "../context/AuthContext"; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, logout } = useContext(AuthContext); // Get user and logout function from context
+  const { user, logout } = useContext(AuthContext); 
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const handleLogout = () => {
-    logout(); // Call the logout function from context
+    logout(); 
   };
 
   return (

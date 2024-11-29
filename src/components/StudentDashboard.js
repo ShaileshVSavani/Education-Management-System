@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const StudentDashboard = () => {
-  const [courses, setCourses] = useState([
+  const [courses] = useState([
     { id: 1, title: "Mathematics", grade: "A" },
     { id: 2, title: "Science", grade: "B+" },
   ]);
