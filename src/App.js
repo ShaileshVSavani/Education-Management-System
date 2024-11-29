@@ -14,10 +14,14 @@ import TeacherProfile from "./components/Teacher/TeacherProfile";
 import StudentProfile from "./components/StudentProfile";
 import { AuthProvider } from "./context/AuthContext";
 import StudentDashboard from "./components/StudentDashboard";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+
 
 function App() {
   return (
     <AuthProvider> {/* Wrap the application in AuthProvider */}
+       <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} />
       <Router>
         <Navbar />
         <Routes>

@@ -12,11 +12,11 @@ const StudentTable = ({ students, courses }) => (
         <tbody>
           {students.map((student) => (
             <tr key={student.id}>
-              <td className="border border-gray-300 px-6 py-3">{student.name}</td>
-              <td className="border border-gray-300 px-6 py-3">
+              <td className="border border-gray-300 px-6 py-3 text-center">{student.name}</td>
+              <td className="border border-gray-300 px-6 py-3 text-center">
                 {courses.find((course) => course.id === student.courseId)?.title}
               </td>
-              <td className="border border-gray-300 px-6 py-3">{student.progress}</td>
+              <td className="border border-gray-300 px-6 py-3 text-center">{student.progress}</td>
             </tr>
           ))}
         </tbody>

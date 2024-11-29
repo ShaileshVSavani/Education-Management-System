@@ -22,19 +22,19 @@ const StudentDashboard = () => {
         <table className="min-w-full table-auto border-collapse border border-gray-300">
           <thead>
             <tr className="bg-blue-100">
-              <th className="border border-gray-300 px-4 py-3 text-left">ID</th>
-              <th className="border border-gray-300 px-4 py-3 text-left">Title</th>
-              <th className="border border-gray-300 px-4 py-3 text-left">Grade</th>
-              <th className="border border-gray-300 px-4 py-3 text-left">Actions</th>
+              <th className="border border-gray-300 px-4 py-3 text-center">ID</th>
+              <th className="border border-gray-300 px-4 py-3 text-center">Title</th>
+              <th className="border border-gray-300 px-4 py-3 text-center">Grade</th>
+              <th className="border border-gray-300 px-4 py-3 text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
             {courses.map((course) => (
               <tr key={course.id} className="border-t">
-                <td className="border border-gray-300 px-4 py-3">{course.id}</td>
-                <td className="border border-gray-300 px-4 py-3">{course.title}</td>
-                <td className="border border-gray-300 px-4 py-3">{course.grade}</td>
-                <td className="border border-gray-300 px-4 py-3">
+                <td className="border border-gray-300 px-4 py-3 text-center">{course.id}</td>
+                <td className="border border-gray-300 px-4 py-3 text-center">{course.title}</td>
+                <td className="border border-gray-300 px-4 py-3 text-center">{course.grade}</td>
+                <td className="border border-gray-300 px-4 py-3 text-center">
                   <button
                     onClick={() => handleAssignmentSubmit(course.id)}
                     className="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600"

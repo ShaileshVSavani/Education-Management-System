@@ -17,11 +17,11 @@ const GradeManagement = ({ courses, students, grades, handleGradeChange }) => (
                 .filter((student) => student.courseId === course.id)
                 .map((student) => (
                   <tr key={student.id}>
-                    <td className="border border-gray-300 px-6 py-3">{student.name}</td>
-                    <td className="border border-gray-300 px-6 py-3">
+                    <td className="border border-gray-300 px-6 py-3 text-center">{student.name}</td>
+                    <td className="border border-gray-300 px-6 py-3 text-center">
                       {grades[course.id]?.[student.id] || "Not Graded"}
                     </td>
-                    <td className="border border-gray-300 px-6 py-3">
+                    <td className="border border-gray-300 px-6 py-3 text-center">
                       <input
                         type="text"
                         placeholder="Enter Grade"
