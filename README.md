@@ -47,8 +47,8 @@ This project is a simple **User Management System** that allows users to sign up
 
 You can view the deployed version of the app at the following URL:
 
-[**Deployed App URL**](https://your-deployment-url.com)  
-(Replace `your-deployment-url.com` with your actual deployed URL.)
+[**Deployed App URL**](https://education-management-system-beryl.vercel.app/)  
+(Replace `https://education-management-system-beryl.vercel.app/` with your actual deployed URL.)
 
 `
 
