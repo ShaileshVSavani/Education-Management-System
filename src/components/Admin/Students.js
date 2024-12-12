@@ -44,19 +44,18 @@ const Students = () => {
     setSortField(field);
     setSortOrder(order);
 
-    setStudents([
-      ...students.sort((a, b) => {
-        const valueA = a[field]?.toString().toLowerCase();
-        const valueB = b[field]?.toString().toLowerCase();
-        if (valueA < valueB) return order === "asc" ? -1 : 1;
-        if (valueA > valueB) return order === "asc" ? 1 : -1;
-        return 0;
-      }),
-    ]);
+    const sorted = [...students].sort((a, b) => {
+      const valueA = a[field]?.toString().toLowerCase() || "";
+      const valueB = b[field]?.toString().toLowerCase() || "";
+      if (valueA < valueB) return order === "asc" ? -1 : 1;
+      if (valueA > valueB) return order === "asc" ? 1 : -1;
+      return 0;
+    });
+    setStudents(sorted);
   };
 
   const filteredStudents = students.filter((student) =>
-    student.name.toLowerCase().includes(filter.toLowerCase())
+    student.name?.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
