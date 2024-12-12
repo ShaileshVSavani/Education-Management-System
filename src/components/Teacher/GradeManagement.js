@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect } from "react";
 
 const GradeManagement = ({ courses, handleGradeChange }) => {
@@ -62,7 +61,7 @@ const GradeManagement = ({ courses, handleGradeChange }) => {
               </thead>
               <tbody>
                 {students
-                  .filter((student) => student.enrollments.includes(String(course.id)))
+                  .filter((student) => Array.isArray(student.enrollments) && student.enrollments.includes(String(course.id)))
                   .map((student) => {
                     const currentGrade = grades[course.id]?.[student.id] || "Not Graded";
                     return (
