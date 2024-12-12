@@ -11,8 +11,8 @@ const Students = () => {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    const storedCourses = JSON.parse(localStorage.getItem("courses")) || [];
-    const storedStudents = JSON.parse(localStorage.getItem("students")) || [];
+    const storedCourses = JSON.parse(localStorage.getItem("courses") || "[]");
+    const storedStudents = JSON.parse(localStorage.getItem("students") || "[]");
     setCourses(storedCourses);
     setStudents(storedStudents);
   }, []);
@@ -44,18 +44,19 @@ const Students = () => {
     setSortField(field);
     setSortOrder(order);
 
-    const sorted = [...students].sort((a, b) => {
+    const sortedStudents = [...students].sort((a, b) => {
       const valueA = a[field]?.toString().toLowerCase() || "";
       const valueB = b[field]?.toString().toLowerCase() || "";
       if (valueA < valueB) return order === "asc" ? -1 : 1;
       if (valueA > valueB) return order === "asc" ? 1 : -1;
       return 0;
     });
-    setStudents(sorted);
+
+    setStudents(sortedStudents);
   };
 
   const filteredStudents = students.filter((student) =>
-    student.name?.toLowerCase().includes(filter.toLowerCase())
+    student.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
@@ -111,7 +112,9 @@ const Students = () => {
                     <td className="border border-gray-300 px-4 py-2">{student.name}</td>
                     <td className="border border-gray-300 px-4 py-2">
                       {student.enrollments.length > 0
-                        ? courses.find((course) => course.id === parseInt(student.enrollments[0]))?.title || "Unknown"
+                        ? courses.find(
+                            (course) => course.id === parseInt(student.enrollments[0])
+                          )?.title || "Unknown"
                         : "Not Enrolled"}
                     </td>
                     <td className="border border-gray-300 px-4 py-2">
@@ -161,7 +164,7 @@ const Students = () => {
                   className="w-full p-2 mt-1 border border-gray-300 rounded focus:ring focus:ring-blue-300 focus:outline-none"
                 >
                   <option value="">Select a Course</option>
-                  {courses.length > 0 ? (
+                  {Array.isArray(courses) && courses.length > 0 ? (
                     courses.map((course) => (
                       <option key={course.id} value={course.id}>
                         {course.title}
