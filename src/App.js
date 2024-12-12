@@ -12,10 +12,11 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import AdminProfile from "./components/Admin/AdminProfile";
 import TeacherProfile from "./components/Teacher/TeacherProfile";
 import StudentProfile from "./components/StudentProfile";
-import { AuthProvider } from "./context/AuthContext";
+
 import StudentDashboard from "./components/StudentDashboard";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
+import AuthProvider from "./context/AuthContext";
 
 
 function App() {

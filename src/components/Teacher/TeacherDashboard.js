@@ -1,25 +1,13 @@
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Tabs from "./Tabs";
 import CourseTable from "./CourseTable";
-import StudentTable from "./StudentTable";
 import GradeManagement from "./GradeManagement";
+import StudentTable from "./StudentTable";
+import { AuthContext } from "../../context/AuthContext";
 
 const TeacherDashboard = () => {
-  const [courses] = useState([
-    { id: 1, title: "Mathematics", description: "Algebra and Geometry" },
-    { id: 2, title: "Science", description: "Physics and Chemistry" },
-  ]);
-  const [students] = useState([
-    { id: 1, name: "ABC", courseId: 1, progress: "75%" },
-    { id: 2, name: "MNP", courseId: 1, progress: "80%" },
-    { id: 3, name: "XYZ", courseId: 2, progress: "60%" },
-  ]);
-  const [grades, setGrades] = useState({
-    1: { 1: "A", 2: "B+" },
-    2: { 3: "C" },
-  });
-
+  const { courses, students, grades, setGrades } = useContext(AuthContext);
   const [activeTab, setActiveTab] = useState("courses");
 
   const handleUploadContent = (courseId) => {
@@ -39,11 +27,8 @@ const TeacherDashboard = () => {
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Teacher Dashboard</h1>
-
-      {/* Tab Navigation */}
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Tab Content */}
       {activeTab === "courses" && (
         <CourseTable courses={courses} handleUploadContent={handleUploadContent} />
       )}
